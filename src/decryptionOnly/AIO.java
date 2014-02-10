@@ -101,6 +101,8 @@ public class AIO {
 		digest.update(keyString.getBytes());
 		System.arraycopy(digest.digest(), 0, key, 0, key.length);
 		
+		System.out.println(key);
+		
 		SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
 		cipher.init(Cipher.DECRYPT_MODE, secretKey, ivSpec);
 		String decryptedString = new String(cipher.doFinal(Base64.decode(encrypted)));
